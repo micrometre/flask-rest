@@ -26,13 +26,11 @@ pip install -e .
 
 1. Initialize the database:
 
-- Create the database 
 ```shell
 flask --app flaskr init-db 
 ```
-2. Run the development server:
 
-- Start the development server with 
+- Start the development server 
 ```shell
 flask --app flaskr run --debug. 
 ```
@@ -56,13 +54,19 @@ pytest
 3. Generate coverage report:
 
 ```shell
-run -m pytest
+coverage run -m pytest
 ```
-- *This will execute tests while collecting coverage data.
-To get an overview of code coverage, use coverage* 
+*This will execute tests while collecting coverage data To get an overview of code coverage.* 
 
 
-- Generates a human-readable coverage report using coverage report.
-- For a more detailed HTML report, run coverage html.
-    - This will create an HTML report in the htmlcov directory,
- which you can open in your browser (usually file:///path/to/project/htmlcov/index.html).
+4. Generate a human-readable coverage report 
+```shell
+coverage report
+```
+
+5. For a more detailed HTML report
+
+```shell
+ coverage html
+```
+*This will create an HTML report in the htmlcov directory*
