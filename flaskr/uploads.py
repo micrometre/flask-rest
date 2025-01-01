@@ -9,7 +9,7 @@ from .db import get_db
 
 
 
-bp = Blueprint('api', __name__, url_prefix='/api')
+bp = Blueprint('uploads', __name__, url_prefix='/uploads')
 ALLOWED_EXTENSIONS = {'mp4', 'png', 'jpg', 'jpeg', 'gif'}
 logging.getLogger('flask_cors').level = logging.DEBUG
 
@@ -20,7 +20,7 @@ def allowed_file(filename):
 
 
 
-@bp.route('/uploads', methods=['GET', 'POST'])
+@bp.route('/', methods=['GET', 'POST'])
 def upload_file():
     if request.method == 'POST':
         if 'file' not in request.files:
@@ -34,7 +34,7 @@ def upload_file():
             filename = secure_filename(file.filename) # type: ignore
             file.save(os.path.join( 'flaskr/static/uploads',filename))
             alpr_file = (os.path.join('flaskr/static/uploads', filename))
-            return redirect(url_for('api.upload_file'))
+            return redirect(url_for('index'))
     return '''
     <!doctype html>
     <title>Upload</title>
