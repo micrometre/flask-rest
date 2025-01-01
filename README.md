@@ -1,6 +1,17 @@
 ## A Flask REST API
 ### This repository implements a simple REST API using the Flask microframework.
 
+#### Routes
+- /auth/user 
+    - Register a new user
+- /auth/login
+    - Login with a Registered user
+- /api/uploads
+    - Simple File upload Route
+- /api/forms
+    - Simple Forms submission
+*The data for the forms submitted and the registered users name and password are stored in a lite sqlite data base.*
+
 #### Installation
 1. Create a virtual environment:
 
