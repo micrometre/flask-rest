@@ -1,6 +1,6 @@
 .PHONY: run
 flask:
-	flask --app flaskalpr run -h 0.0.0.0 --debug --reload
+	flask --app flaskr run -h 0.0.0.0 --debug --reload
 
 gunicorn:
 	gunicorn -k gevent   -b 0.0.0.0:5000 'flaskalpr:create_app()'
