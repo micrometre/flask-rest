@@ -9,7 +9,7 @@ wait:
 	waitress-serve  --port=5000 --call 'flaskalpr:create_app'	
 
 db_init:	
-	flask --app flaskalpr init-db
+	flask --app flaskr init-db
 
 default_user:	
 	python3 flaskalpr/scripts/default_user.py 

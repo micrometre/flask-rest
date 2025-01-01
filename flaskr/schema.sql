@@ -18,3 +18,10 @@ CREATE TABLE post (
   body TEXT NOT NULL,
   FOREIGN KEY (author_id) REFERENCES user (id)
 );
+
+CREATE TABLE forms (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  firstname TEXT UNIQUE NOT NULL,
+  email TEXT NOT NULL,
+  message TEXT NOT NULL
+);
