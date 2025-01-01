@@ -5,6 +5,7 @@ from flask import flash
 import os
 import logging
 from werkzeug.utils import secure_filename
+from .db import get_db
 
 
 
@@ -30,6 +31,8 @@ def create():
         first_name = request.form['first-name']
         email = request.form['email']
         message = request.form['message']
+        db = get_db()
+        error = None
         print(first_name)
         if not first_name:
             flash('Name is required!')
@@ -37,13 +40,20 @@ def create():
             flash('Email is required!')
         elif not message:
             flash('Message is required!')            
-        else:
-            messages.append({
-                'first-name': first_name,
-                    'email': email, 
-                    'message': message,
-                    })
-            return redirect(url_for('api.create'))
+        if error is None:
+            try:
+                db.execute(
+                    "INSERT INTO forms (first_name, email, message) VALUES (?, ?, ?)",
+                    (first_name, email, message),
+                )
+                db.commit()
+            except db.IntegrityError:
+                # The username was already taken, which caused the
+                # commit to fail. Show a validation error.
+                error = f"first_name {first_name} is already registered."
+            else:
+                # Success, go to the login page.
+                return redirect(url_for('api.create'))
     return '''
     <!doctype html>
 <form method=post enctype=multipart/form-data>
