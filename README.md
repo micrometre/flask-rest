@@ -4,17 +4,29 @@
 #### Installation
 1. Create a virtual environment:
 
-- Isolate project dependencies using a virtual environment. You can use python3 -m venv .venv to create one named .venv.
-- Activate the virtual environment using . .venv/bin/activate.
+- Isolate project dependencies using a virtual environment. 
+
+```shell
+python3 -m venv .venv 
+#to create one named .venv.
+```
+- Activate the virtual environment using 
+```shell
+. .venv/bin/activate.
+```
+
 Install Flaskr:
 
-2. Install the project in editable mode using pip install -e .. This allows you to make changes to the code and test them without reinstalling.
-
+2. Install the project in editable mode 
+```shell
+pip install -e . 
+#This allows you to make changes to the code and test them without reinstalling.
+```
 #### Usage
 
 1. Initialize the database:
 
-- Create the database schema (if applicable).
+- Create the database 
 ```shell
 flask --app flaskr init-db 
 ```
@@ -33,13 +45,13 @@ Install test dependencies:
 ```shell
 pip install '.[test]. 
 ```
-*This install any additional packages needed for running tests.*
+*Install any additional packages needed for running tests.*
 
 2. Run tests:
 ```shell
 pytest
 ```
-*This will discover and run all test cases in the project. 
+*This will discover and run all test cases in the project.* 
 
 3. Generate coverage report:
 
