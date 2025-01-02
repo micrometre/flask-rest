@@ -5,19 +5,16 @@ from flask import flash
 import os
 import logging
 from werkzeug.utils import secure_filename
-from .db import get_db
 
 
 
 bp = Blueprint('uploads', __name__, url_prefix='/uploads')
-ALLOWED_EXTENSIONS = {'mp4', 'png', 'jpg', 'jpeg', 'gif'}
+ALLOWED_EXTENSIONS = {'mp4', 'png', 'jpg', 'jpeg', 'gif', 'webp'}
 logging.getLogger('flask_cors').level = logging.DEBUG
 
 def allowed_file(filename):
     return '.' in filename and \
            filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
-
-
 
 
 @bp.route('/', methods=['GET', 'POST'])
@@ -33,8 +30,8 @@ def upload_file():
         if file and allowed_file(file.filename):
             filename = secure_filename(file.filename) # type: ignore
             file.save(os.path.join( 'flaskr/static/uploads',filename))
-            alpr_file = (os.path.join('flaskr/static/uploads', filename))
             return redirect(url_for('blog.index'))
+    return render_template('blog/uploads.html')
     return '''
     <!doctype html>
     <title>Upload</title>
