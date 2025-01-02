@@ -1,17 +1,16 @@
 [project]
 name = "flaskr"
 version = "1.0.0"
-description = "The basic blog app built in the Flask tutorial."
+description = "basic Flask REST/API."
 readme = "README.md"
 license = {text = "BSD-3-Clause"}
-maintainers = [{name = "Pallets", email = "contact@palletsprojects.com"}]
+maintainers = [{name = "Henok", email = "henokmicrometre@gmail.com"}]
 dependencies = [
     "flask",
 ]
 
 [project.urls]
 Documentation = "https://flask.palletsprojects.com/tutorial/"
-
 [project.optional-dependencies]
 test = ["pytest"]
 

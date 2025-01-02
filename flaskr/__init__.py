@@ -34,17 +34,13 @@ def create_app(test_config=None):
     # apply the blueprints to the app
     from . import auth
     from . import blog
-    from . import api
     from . import forms
     from . import uploads
-    from . import cmd
 
     app.register_blueprint(auth.bp)
     app.register_blueprint(blog.bp)
-    app.register_blueprint(api.bp)
     app.register_blueprint(forms.bp)
     app.register_blueprint(uploads.bp)
-    app.register_blueprint(cmd.bp)
 
     # make url_for('index') == url_for('blog.index')
     # in another app, you might define a separate main index here with
