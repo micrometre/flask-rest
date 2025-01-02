@@ -34,7 +34,7 @@ def upload_file():
             filename = secure_filename(file.filename) # type: ignore
             file.save(os.path.join( 'flaskr/static/uploads',filename))
             alpr_file = (os.path.join('flaskr/static/uploads', filename))
-            return redirect(url_for('index'))
+            return redirect(url_for('blog.index'))
     return '''
     <!doctype html>
     <title>Upload</title>

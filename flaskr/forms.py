@@ -64,6 +64,7 @@ def create():
     if request.method == "POST":
         title = request.form["title"]
         name = request.form["name"]
+        email = request.form["email"]
         body = request.form["body"]
         error = None
 
@@ -75,11 +76,11 @@ def create():
         else:
             db = get_db()
             db.execute(
-                "INSERT INTO forms (title, name, body, author_id) VALUES (?, ?, ?, ?)",
-                (title, name, body, g.user["id"]),
+                "INSERT INTO forms (title, name, email, body, author_id) VALUES (?, ?, ?, ?, ?)",
+                (title, name, email, body, g.user["id"]),
             )
             db.commit()
-            return redirect(url_for("blog.create"))
+            return redirect(url_for("forms.index"))
 
     return render_template("blog/forms.html")
 
