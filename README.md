@@ -12,23 +12,34 @@
     - Simple Forms submission
 
 
-#### Installation
-1. Create a virtual environment:
+#### To  run the app in docker
+- Install Docker and Docker Compose .
+    - [*Follow the official instruction*](https://docs.docker.com/engine/install/ubuntu/)
+- Clone the repo
 
-- Isolate project dependencies using a virtual environment. 
+```shell
+git clone  https://github.com/micrometre/flask-restgit
+cd flask-restgit
+docker compose up -d 
+```
+
+
+
+
+
+#### To  run the app in python virtual environment
+1. Create a virtual environment:
 
 ```shell
 python3 -m venv .venv 
 #to create one named .venv.
 ```
-- Activate the virtual environment using 
+2. Activate the virtual environment using 
 ```shell
 . .venv/bin/activate.
 ```
 
-Install Flaskr:
-
-2. Install the project in editable mode 
+3. Install the project in editable mode 
 ```shell
 pip install -e . 
 #This allows you to make changes to the code and test them without reinstalling.
