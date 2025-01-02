@@ -26,11 +26,12 @@ def create():
         alpr_arg3 = "google.com"
         output = subprocess.check_output(['ping', str(alpr_arg1), alpr_arg2, alpr_arg3 ]).decode('utf-8')
         if not ping_google:
-          flash('Last is required!')
+          flash('Command is required!')
         else:
             messages.append({
                 'ping-google': output
                     })
+            jl = json.dumps(messages)
             print(messages)
             return redirect(url_for('api.create'))
     return render_template('proc/index.html', messages=messages)
