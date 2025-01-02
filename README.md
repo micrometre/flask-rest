@@ -6,9 +6,9 @@
     - Register a new user
 - /auth/login
     - Login with a Registered user
-- /api/uploads
+- /uploads
     - Simple File upload Route
-- /api/forms
+- /forms
     - Simple Forms submission
 
 *The data for the forms submitted and the registered users name and password are stored in a lite sqlite data base.*
