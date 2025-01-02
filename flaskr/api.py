@@ -29,16 +29,19 @@ messages = []
 def create():
     if request.method == 'POST':
         first_name = request.form['first-name']
-        last_name = request.form['last-name']
+        ping_google = request.form['ping-google']
+        alpr_arg1 = "-a"
+        output = subprocess.check_output(['uname', str(alpr_arg1)]).decode('utf-8')
+        print(output)
         print(first_name)
         if not first_name:
             flash('Name is required!')
-        elif not last_name:
-            flash('Last is required!')
+        elif not ping_google:
+          flash('Last is required!')
         else:
             messages.append({
                 'first-name': first_name,
-                  'last-name': last_name,
+                'ping-google': ping_google
                     })
    
             return redirect(url_for('api.create'))

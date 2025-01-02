@@ -6,15 +6,13 @@
     <br>
     <input type="text" name="first-name" placeholder="First Name" value="{{ request.form['first-name'] }}"></input>
     <br>
-    <br>
-    <input type="text" name="last-name" placeholder="Last Name" value="{{ request.form['last-name'] }}"></input>
+    <input type="text" name="ping-google" placeholder="Ping Google" value="{{ request.form['ping-google'] }}"></input>
     <br>
     <button type="submit">Submit</button>
 </form>
 {% for message in messages %}
 <div class='message'>
     <h1>{{ message['first-name'] }}</h1>
-    <h1>{{ message['last-name'] }}</h1>
 </div>
 {% endfor %}
 {% endblock %}
