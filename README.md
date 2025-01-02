@@ -11,7 +11,6 @@
 - /forms
     - Simple Forms submission
 
-*The data for the forms submitted and the registered users name and password are stored in a lite sqlite data base.*
 
 #### Installation
 1. Create a virtual environment:
@@ -82,3 +81,4 @@ coverage report
  coverage html
 ```
 *This will create an HTML report in the htmlcov directory*
+*The data for the forms submitted and the registered users name and password are stored in  sqlite data base.*
