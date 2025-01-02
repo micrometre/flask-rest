@@ -28,21 +28,17 @@ messages = []
 @bp.route('/', methods=('GET', 'POST'))
 def create():
     if request.method == 'POST':
-        first_name = request.form['first-name']
         ping_google = request.form['ping-google']
-        alpr_arg1 = "-a"
-        output = subprocess.check_output(['uname', str(alpr_arg1)]).decode('utf-8')
-        print(output)
-        print(first_name)
-        if not first_name:
-            flash('Name is required!')
-        elif not ping_google:
+        alpr_arg1 = "-c"
+        alpr_arg2 = "3"
+        alpr_arg3 = "google.com"
+        output = subprocess.check_output(['ping', str(alpr_arg1), alpr_arg2, alpr_arg3 ]).decode('utf-8')
+        if not ping_google:
           flash('Last is required!')
         else:
             messages.append({
-                'first-name': first_name,
-                'ping-google': ping_google
+                'ping-google': output
                     })
-   
+            print(messages)
             return redirect(url_for('api.create'))
     return render_template('proc/index.html', messages=messages)
