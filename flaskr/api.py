@@ -14,15 +14,7 @@ bp = Blueprint('api', __name__, url_prefix='/api')
 ALLOWED_EXTENSIONS = {'mp4', 'png', 'jpg', 'jpeg', 'gif'}
 logging.getLogger('flask_cors').level = logging.DEBUG
 
-def allowed_file(filename):
-    return '.' in filename and \
-           filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
-
 messages = []
-
-
-
-
 
 
 @bp.route('/', methods=('GET', 'POST'))
