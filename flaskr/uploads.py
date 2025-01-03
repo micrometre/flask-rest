@@ -6,6 +6,7 @@ import os
 import logging
 from werkzeug.utils import secure_filename
 
+from .auth import login_required
 
 
 bp = Blueprint('uploads', __name__, url_prefix='/uploads')
@@ -18,6 +19,7 @@ def allowed_file(filename):
 
 
 @bp.route('/', methods=['GET', 'POST'])
+@login_required
 def upload_file():
     if request.method == 'POST':
         if 'file' not in request.files:

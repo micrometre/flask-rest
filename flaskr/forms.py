@@ -14,6 +14,7 @@ from .db import get_db
 bp = Blueprint('forms', __name__, url_prefix='/forms')
 
 @bp.route("/")
+@login_required
 def index():
     """Show all the posts, most recent first."""
     db = get_db()
