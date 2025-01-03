@@ -104,7 +104,7 @@ def update(id):
         else:
             db = get_db()
             db.execute(
-                "UPDATE post SET title = ?, body = ? WHERE id = ?", (title, body, id)
+                "UPDATE forms SET title = ?, body = ? WHERE id = ?", (title, body, id)
             )
             db.commit()
             return redirect(url_for("forms.index"))
